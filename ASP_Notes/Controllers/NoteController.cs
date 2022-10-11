@@ -14,10 +14,11 @@ namespace ASP_Notes.Controllers
             _noteRepository = noteRepository;
         }
         [HttpGet("GetNotes")]
-        public async Task<IActionResult> GetNotes()
+        public IAsyncEnumerable<Note> GetNotes()
         {
-            return (IActionResult)await _noteRepository.GetAll();
+            return _noteRepository.GetAllNotes();
         }
+       
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {

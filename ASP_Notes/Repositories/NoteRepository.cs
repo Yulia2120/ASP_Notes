@@ -40,11 +40,10 @@ namespace ASP_Notes.Repositories
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<Note>> GetAll()
+        public IAsyncEnumerable<Note> GetAllNotes()
         {
-            return await _db.Notes.ToListAsync();
-        } 
-
+            return _db.Notes.AsAsyncEnumerable();
+        }
         public async Task<Note?> GetByTitle(string title)
         {
             return await _db.Notes.FirstOrDefaultAsync(x => x.Title == title);
