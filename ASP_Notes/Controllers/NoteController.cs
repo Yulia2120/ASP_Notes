@@ -13,8 +13,8 @@ namespace ASP_Notes.Controllers
         {
             _noteRepository = noteRepository;
         }
-        [HttpGet("GetNotes")]
-        public IAsyncEnumerable<Note> GetNotes()
+        [HttpGet("AllNotes")]
+        public IAsyncEnumerable<Note> AllNotes()
         {
             return _noteRepository.GetAllNotes();
         }
