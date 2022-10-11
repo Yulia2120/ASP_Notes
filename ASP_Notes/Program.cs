@@ -68,6 +68,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(builder => builder.AllowAnyOrigin());
 app.UseHttpsRedirection();
 //добавляем компонент в конвейер промежуточного ПО
 app.UseAuthentication();
