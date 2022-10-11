@@ -33,11 +33,8 @@ namespace ASP_Notes.Controllers
         [HttpPost("Post")]
         public async Task<ActionResult> Post(Note note)
         {
-         var result =  await _noteRepository.AddNote(note);
-            if (result!)
-            {
-                return NotFound();
-            }
+          await _noteRepository.AddNote(note);
+
             return Ok(note);
 
         }
@@ -46,17 +43,14 @@ namespace ASP_Notes.Controllers
         {
             await _noteRepository.UpdateNoteAsync(note);
           
-            return (ActionResult)Results.NoContent();
+            return Ok(note);
         }
         
         [HttpDelete("Delete")]
         public async Task<ActionResult> Delete(string note)
         {
-            var result = await _noteRepository.Delete(note);
-            if (result!)
-            {
-                return NotFound();
-            }
+           await _noteRepository.Delete(note);
+          
             return Ok(note);
         }
     }

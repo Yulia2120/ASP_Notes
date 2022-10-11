@@ -15,8 +15,12 @@ namespace ASP_Notes.Models
         }
         public DbSet<Note> Notes { get; set; } = null!;
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+         
+        }
 
-
-
+      
     }
 }
