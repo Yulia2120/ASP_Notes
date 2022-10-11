@@ -71,7 +71,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 //добавляем компонент в конвейер промежуточного ПО
 app.UseAuthentication();
-//app.UseAuthorization();
+app.UseAuthorization();
 
 app.MapControllers();
 
